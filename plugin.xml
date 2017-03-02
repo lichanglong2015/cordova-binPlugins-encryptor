@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.bin.cordova.encryptor" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>
+    encryptor</name>
+
+	<!-- ios -->
+	<platform name="ios">
+	    <js-module name="Encryptor" src="www/encryptor.js">
+		    <clobbers target="cordova.binPlugins.encryptor" />
+		</js-module>
+	    <config-file target="config.xml" parent="/*">
+	        <feature name="Encryptor">
+	            <param name="ios-package" value="Encryptor" />
+	        </feature>
+	    </config-file>
+	    
+	    <header-file src="src/ios/AESUtil.h" />
+	    <source-file src="src/ios/AESUtil.m" />
+	    <header-file src="src/ios/Encryptor.h" />
+	    <source-file src="src/ios/Encryptor.m" />
+	</platform>
+
+	<!-- android -->
+	<platform name="android">
+	    <js-module name="Encryptor" src="www/encryptor.js">
+		    <clobbers target="cordova.binPlugins.encryptor" />
+		</js-module>
+	    <config-file target="res/xml/config.xml" parent="/*">
+	        <feature name="Encryptor">
+	            <param name="android-package" value="com.dotc.plugins.Encryptor" />
+	        </feature>
+	    </config-file>
+
+	    <source-file src="src/android/Encryptor.java" target-dir="src/com/dotc/plugins" />
+	</platform>
+
+</plugin>
